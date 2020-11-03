@@ -57,3 +57,8 @@ ul {
 ::placeholder {
   font-style: italic;
 }
+
+/* add height for card */
+#postItem >.card{
+  height: 100%;
+}
