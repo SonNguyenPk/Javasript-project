@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
 
     <!-- Bootstrap CSS -->
+    <link href="./dist/css/lightbox.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -48,7 +49,7 @@
             </li>
 
             <li class="nav-item">
-              <a id="goToEditPageLink" class="nav-link" href="#"></a>
+              <a id="goToEditPageLink" class="nav-link" href="#">Edit post</a>
             </li>
           </ul>
         </div>
@@ -85,14 +86,9 @@
                 inventore hic tenetur, dolor iusto dolorum rem, non error, saepe quia dignissimos
                 quas ducimus aliquid. Praesentium ea aspernatur vero deserunt.
               </p>
-
-              <img class="post-image" src="https://picsum.photos/1368/800" alt="Picsum photos" />
-
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci suscipit
-                inventore hic tenetur, dolor iusto dolorum rem, non error, saepe quia dignissimos
-                quas ducimus aliquid. Praesentium ea aspernatur vero deserunt.
-              </p>
+              <a data-lightbox="image-1" href="https://picsum.photos/1368/800">
+                <img class="post-image" src="https://picsum.photos/1368/800" alt="Picsum photos" />
+              </a>
 
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci suscipit
@@ -106,8 +102,19 @@
                 quas ducimus aliquid. Praesentium ea aspernatur vero deserunt.
               </p>
 
-              <img class="post-image" src="https://picsum.photos/1368/1000" alt="Picsum photos" />
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci suscipit
+                inventore hic tenetur, dolor iusto dolorum rem, non error, saepe quia dignissimos
+                quas ducimus aliquid. Praesentium ea aspernatur vero deserunt.
+              </p>
 
+              <a data-lightbox="image-2" href="https://picsum.photos/1368/1000"
+                ><img
+                  class="post-image"
+                  src="https://picsum.photos/1368/1000"
+                  alt="Picsum photos"
+                />
+              </a>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci suscipit
                 inventore hic tenetur, dolor iusto dolorum rem, non error, saepe quia dignissimos
@@ -120,7 +127,7 @@
     </main>
 
     <footer class="text-center text-muted py-3">
-      <small>Created by Po with <i class="fas fa-heart"></i></small>
+      <small>Created by Uc with <i class="fas fa-heart"></i></small>
     </footer>
 
     <!-- Scripts should be placed here to prevent blocking render UI -->
@@ -145,5 +152,6 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <script src="./dist/js/lightbox-plus-jquery.js"></script>
   </body>
 </html>

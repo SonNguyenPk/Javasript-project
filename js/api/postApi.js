@@ -12,7 +12,7 @@ const postApi = {
   },
 
   add(data) {
-    const url = `/posts/${data.id}`;
+    const url = `/posts`;
     return axiosClient.post(url, data);
   },
 
