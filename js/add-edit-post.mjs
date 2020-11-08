@@ -57,6 +57,7 @@ const validateFormValues = (formValues) => {
     isValidForm = false;
     console.log('chua dien title');
   }
+
   // check author  whether is empty or not
   const isValidAuthor = !formValues.author ? false : true;
   if (!isValidAuthor) isValidForm = false;
@@ -88,12 +89,6 @@ const isEditMode = (postId) => {
 const handleSubmit = async (e) => {
   e.preventDefault();
 
-  // hide button save and show loading
-  const submitForm = document.querySelector('#savePost');
-  submitForm.classList.add('d-none');
-  const loadingButton = document.querySelector('#loading-button');
-  loadingButton.classList.remove('d-none');
-
   const formPost = e.target.parentNode.parentNode;
   console.log(formPost);
   const formValues = getFormsValue(formPost);
@@ -106,11 +101,16 @@ const handleSubmit = async (e) => {
     return;
   }
 
+  // hide button save and show loading when form value is ok
+  const submitForm = document.querySelector('#savePost');
+  submitForm.classList.add('d-none');
+  const loadingButton = document.querySelector('#loading-button');
+  loadingButton.classList.remove('d-none');
+
+  // edit post
   const urlParam = new URLSearchParams(window.location.search);
   console.log(urlParam);
   const postId = urlParam.get('id');
-  // edit post
-
   if (isEditMode(postId)) {
     formValues.id = postId;
     console.log(formValues);

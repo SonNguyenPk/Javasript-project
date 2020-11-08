@@ -94,10 +94,13 @@ const handlePagination = (currentPage, totalPage) => {
   const paginationButton = document.querySelectorAll('#postsPagination>li');
   if (!paginationButton) return;
   paginationButton[0].parentNode.removeAttribute('hidden');
+
+  // hide pre/next button if current page is first/last
   if (currentPage === 1) paginationButton[0].classList.add('d-none');
-  if (currentPage === totalPage) paginationButton[4].classList.add('d-none');
+  if (currentPage === totalPage) paginationButton[1].classList.add('d-none');
+
+  // handle click page
   paginationButton.forEach((button, idx) => {
-    // handle click page
     button.addEventListener('click', () => {
       if (idx === 0) {
         const pageLink = paginationButton[idx].querySelector('.page-link');
@@ -106,7 +109,7 @@ const handlePagination = (currentPage, totalPage) => {
           pageLink.href = `?_page=${prePage}&_limit=${AppConstants.DEFAULT_LIMIT}`;
         }
       }
-      if (idx === 4) {
+      if (idx === 1) {
         const nextPage = currentPage + 1;
         const pageLink = paginationButton[idx].querySelector('.page-link');
         if (pageLink) {
@@ -127,15 +130,16 @@ const handlePagination = (currentPage, totalPage) => {
       _order: 'desc',
     };
     const response = await postApi.getAll(param);
-    console.log(response);
     const postList = response.data.data;
-    console.log(urlParam);
+
+    // cal number of page
     const pagination = response.data.pagination;
     const currentPage = pagination._page;
     const totalPage =
       pagination._totalRows % AppConstants.DEFAULT_LIMIT > 0
         ? Math.trunc(pagination._totalRows / AppConstants.DEFAULT_LIMIT) + 1
         : pagination._totalRows / AppConstants.DEFAULT_LIMIT;
+
     // hide loading
     const loading = document.querySelector('#loading');
     if (loading) {
