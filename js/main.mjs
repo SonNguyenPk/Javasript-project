@@ -1,6 +1,7 @@
 import postApi from './api/postApi.js';
 import AppConstants from './appConstants.js';
 import utils from './utils.js';
+import anime from '../anime/anime.es.js';
 
 const renderPostList = (postList) => {
   const ulElement = document.querySelector('#postsList');
@@ -151,6 +152,16 @@ const handlePagination = (currentPage, totalPage) => {
       handlePagination(currentPage, totalPage);
       renderPostList(postList);
     }
+
+    anime({
+      targets: 'ul#postsList>li',
+      keyframes: [{ translateY: -100 }, { translateY: 0 }],
+      duration: 3000,
+      scale: [
+        { value: 0.1, easing: 'easeOutSine', duration: 5 },
+        { value: 1, easing: 'easeInOutQuad', duration: 1200 },
+      ],
+    });
   } catch (error) {
     console.log('Fail to get post list', error);
   }
